@@ -1,0 +1,60 @@
+WEATHER TRENDS
+
+pull nearest city data
+but, which city is nearest to me? what can i filter by so that i don't have to scroll through 345 results?
+what does the data table look like, what information does it contain that i can filer on?
+
+SELECT *
+FROM city_list
+LIMIT 5;
+
+from this i see that there are two columns, city and country
+i can filter for only "United States" to get a smaller list to scroll through
+
+SELECT city
+FROM city_list
+WHERE country = 'United States';
+
+This gives me 52 results, which is much easier to scroll through
+Sacramento is on the list, so I will continue with that as my nearest city
+
+Extract Sacramento data
+Let's take a look at what type of data, and column headers are contained in the city_data sheet
+
+SELECT *
+FROM city_data
+LIMIT 5;
+
+We have year (num), city (string), country (string), and avg_temp (num)
+
+Now to only pull Sacramento
+SELECT *
+FROM city_data
+WHERE city = 'Sacramento';
+
+This gives 165 results, but the columns city ('Sacrameto') and country ('United States') are not important and redunant, so I'll repull the data without those columns
+
+SELECT year, avg_temp
+FROM city_data
+WHERE city = 'Sacramento';
+
+This also gives 165 results, so I'm confident I've captured them all.
+Click "Download CSV"
+
+Now to download the global data
+I'm curious to see how this table is structured
+
+SELECT *
+FROM global_data
+LIMIT 5;
+
+The only two columns in this table are 'year' and avg_temp.
+
+Now, I'll download and export to CSV.
+
+SELECT *
+FROM global_data;
+
+i moved both of these files to my google drive (to keep organized) and then renamed them sacramento_weather.csv and global_weather.CSV
+
+I'll use Excel from here on about
